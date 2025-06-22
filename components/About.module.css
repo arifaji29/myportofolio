@@ -1,0 +1,21 @@
+/* components/About.module.css */
+.about {
+  background-color: #ffffff; /* Latar belakang putih */
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+
+.description {
+  max-width: 800px; /* Batasi lebar teks agar mudah dibaca */
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+}

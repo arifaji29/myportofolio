@@ -1,0 +1,8 @@
+/* components/Footer.module.css */
+.footer {
+  background-color: #111827; /* Warna hitam keabu-abuan */
+  color: #d1d5db; /* Warna teks abu-abu terang */
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100%;
+}

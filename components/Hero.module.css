@@ -1,0 +1,72 @@
+/* components/Hero.module.css */
+
+.heroSection {
+  display: flex;
+  flex-direction: column; /* Ubah ke kolom untuk mobile */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800; /* Lebih tebal */
+  color: #111827;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* INI BAGIAN PENTING UNTUK TOMBOL */
+.heroButton {
+  display: inline-block;
+  background-color: #0070f3; /* Warna biru */
+  color: #ffffff; /* Teks putih */
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px; /* Sudut sedikit melengkung */
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.heroButton:hover {
+  background-color: #005bb5; /* Warna biru lebih gelap saat hover */
+  transform: translateY(-2px); /* Sedikit naik saat hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.heroImageContainer {
+  margin-top: 2rem;
+}
+
+.heroImage {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 250px;  /* Ukuran disesuaikan */
+  height: 250px; /* Ukuran disesuaikan */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Aturan untuk desktop */
+@media screen and (min-width: 768px) {
+  .heroSection {
+    flex-direction: row; /* Kembali ke baris untuk desktop */
+    justify-content: space-around;
+    text-align: left;
+  }
+
+  .heroImageContainer {
+    margin-top: 0;
+  }
+
+  .heroTitle {
+    font-size: 4rem;
+  }
+}
