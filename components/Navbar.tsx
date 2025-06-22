@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link href="/">
-          <span className={styles.logo}>Arif's Portofolio</span>
+          <span className={styles.logo}>Arifs Portofolio</span>
         </Link>
 
         {/* Menu untuk Desktop */}
