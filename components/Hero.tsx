@@ -9,10 +9,10 @@ const Hero = () => {
     <section className={styles.heroSection}>
       <div>
         <h1 className={styles.heroTitle}>Halo, saya Arif</h1>
-       <p className={styles.heroSubtitle}>Graphic Designer & Digital Experiences Enthusiast</p>
+       <p className={styles.heroSubtitle}>Graphic Designer , UI/UX & Web Development Enthusiast</p>
         
         {/* Pastikan menggunakan styles.heroButton */}
-        <Link href="#projects" className={styles.heroButton}>
+        <Link href="#graphic-design" className={styles.heroButton}>
           Lihat Proyek Saya
         </Link>
       </div>

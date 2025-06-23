@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 :root {
+  --gradient-start: #DC43B0; /* Warna pink/magenta */
+  --gradient-end:#4A10B6;   /* Warna biru tua/ungu */
+
+  /* Kita definisikan gradasinya di sini */
+  --brand-gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+}
+
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }

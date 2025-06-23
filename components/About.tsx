@@ -8,11 +8,8 @@ const About = () => {
       <div className="container">
         <h2 className={styles.title}>Tentang Saya</h2>
         <p className={styles.description}>
- Saya seorang Graphic Designer dengan ketertarikan kuat pada pengembangan antarmuka digital (UI/UX) dan Web Development.
-Memiliki pengalaman dalam desain visual untuk berbagai kebutuhan branding dan komunikasi digital, serta sedang memperluas keahlian ke bidang desain pengalaman pengguna.
-Aktif mengembangkan portofolio yang menggabungkan estetika visual dengan fungsi dan kenyamanan pengguna.
-Terbuka untuk peluang di bidang desain digital, UI/UX, dan front-end development.
-</p>
+         Saya seoarang Graphic Designer dengan pengalaman bekerja lebih dari 4 tahun di industri kreatif. Saya juga memiliki ketertarikan dalam dunia UI UX Design dan Web Development. Beberapa project telah saya hasilkan selama saya bekerja baik dari pekerjaan utama, freelance maupun dari project pribadi. Saya juga masih terus belajar dan mengupgrade skill saya dalam bidang-bidang tersebut untuk menghasilkan project/karya yang lebih baik untuk kedepannya.
+        </p>
       </div>
     </section>
   );

@@ -1,0 +1,61 @@
+/* components/ProjectCard.module.css */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.captionContainer {
+  cursor: pointer;
+}
+
+.caption {
+  color: #374151;
+  margin: 0;
+  line-height: 1.7;
+  /* Animasi saat ganti teks (opsional) */
+  transition: all 0.3s ease-in-out;
+}
+
+.readMore {
+  display: block;
+  font-weight: 600;
+  color: #0070f3;
+  margin-top: 0.5rem;
+}
+
+.behanceButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #053eff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.behanceButton:hover {
+  background-color: #002ac2;
+}

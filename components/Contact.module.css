@@ -21,17 +21,22 @@
 
 .emailLink {
   display: inline-block;
-  background-color: #0070f3;
   color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 8px;
   font-size: 1.125rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  /* Ganti background-color dengan background-image */
+  background-image: var(--brand-gradient);
+  
+  /* Efek hover yang sama dengan tombol hero */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .emailLink:hover {
-  background-color: #005bb5;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
