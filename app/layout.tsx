@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "[Nama Anda] - Web Portfolio",
+  title: "Arif's - Web Portfolio",
   description: "Portofolio web pribadi dibuat dengan Next.js",
 };
 
