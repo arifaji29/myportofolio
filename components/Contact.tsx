@@ -8,11 +8,17 @@ const Contact = () => {
       <div className="container">
         <h2 className={styles.title}>Hubungi Saya</h2>
         <p className={styles.subtitle}>
-          Saya terbuka untuk diskusi, kolaborasi, atau peluang kerja. 
-          Jangan ragu untuk menghubungi saya!
+          Tertarik untuk berkolaborasi atau punya pertanyaan?
+          <br />
+          Jangan ragu untuk mengirimkan saya email.
         </p>
-        <a href="mailto:arif@example.com" className={styles.emailLink}>
-          arif@example.com
+        
+        {/* INI BAGIAN UTAMANYA: SEBUAH LINK BIASA YANG DIBERI GAYA */}
+        <a 
+          href="mailto:arifajif@gmail.com" 
+          className={styles.emailButton}
+        >
+          Kirim Email
         </a>
       </div>
     </section>
