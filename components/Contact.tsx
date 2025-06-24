@@ -18,41 +18,50 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmissionStatus('');
 
-    // --- TAMBAHKAN BLOK PEMERIKSAAN INI ---
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
     if (!accessKey) {
       console.error("Error: Access Key tidak ditemukan. Pastikan file .env.local sudah benar.");
       setSubmissionStatus('error');
-      setIsSubmitting(false); // Pastikan status submitting kembali false
-      return; // Hentikan fungsi jika key tidak ada
+      setIsSubmitting(false);
+      return;
     }
-    // ------------------------------------
 
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
     formData.append("message", message);
-    
-    // Gunakan variabel 'accessKey' yang sudah kita periksa
-    formData.append("access_key", accessKey); 
-    
+    formData.append("access_key", accessKey);
     formData.append("subject", `New Contact Form Submission from ${name}`);
     formData.append("from_name", "Arif's Portfolio");
 
-    // ... sisa fungsi try-catch Anda tidak perlu diubah ...
+
     try {
+      // 'res' dideklarasikan di sini...
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
       });
-      // ...
-    } catch (error) {
-      // ...
+
+      // ...dan 'res' DIGUNAKAN di sini untuk mendapatkan 'data'
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmissionStatus('success');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        console.log("Error from Web3Forms:", data);
+        setSubmissionStatus('error');
+      }
+    } catch (_error) { // Variabel 'error' diberi awalan '_' karena tidak dipakai
+      console.log("Fetch error:", _error); // Opsional: log error untuk debugging
+      setSubmissionStatus('error');
     } finally {
       setIsSubmitting(false);
     }
-};
+  };
 
   return (
     <section id="contact" className={styles.contact}>
