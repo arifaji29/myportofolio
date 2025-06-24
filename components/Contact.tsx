@@ -1,25 +1,124 @@
 // components/Contact.tsx
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import styles from './Contact.module.css';
 
 const Contact = () => {
+  // State untuk mengelola input form
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  // State untuk mengelola status pengiriman
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(''); // 'success' atau 'error'
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmissionStatus('');
+
+    // --- TAMBAHKAN BLOK PEMERIKSAAN INI ---
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      console.error("Error: Access Key tidak ditemukan. Pastikan file .env.local sudah benar.");
+      setSubmissionStatus('error');
+      setIsSubmitting(false); // Pastikan status submitting kembali false
+      return; // Hentikan fungsi jika key tidak ada
+    }
+    // ------------------------------------
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+    
+    // Gunakan variabel 'accessKey' yang sudah kita periksa
+    formData.append("access_key", accessKey); 
+    
+    formData.append("subject", `New Contact Form Submission from ${name}`);
+    formData.append("from_name", "Arif's Portfolio");
+
+    // ... sisa fungsi try-catch Anda tidak perlu diubah ...
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      // ...
+    } catch (error) {
+      // ...
+    } finally {
+      setIsSubmitting(false);
+    }
+};
+
   return (
     <section id="contact" className={styles.contact}>
       <div className="container">
         <h2 className={styles.title}>Hubungi Saya</h2>
         <p className={styles.subtitle}>
-          Tertarik untuk berkolaborasi atau punya pertanyaan?
-          <br />
-          Jangan ragu untuk mengirimkan saya email.
+          Punya pertanyaan atau ingin berkolaborasi? Isi form di bawah ini!
         </p>
+
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="name">Nama</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required 
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="message">Pesan</label>
+            <textarea 
+              id="message" 
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required 
+              rows={5}
+              className={styles.textarea}
+            ></textarea>
+          </div>
+          <button 
+            type="submit" 
+            className={styles.submitButton}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
+          </button>
+        </form>
         
-        {/* INI BAGIAN UTAMANYA: SEBUAH LINK BIASA YANG DIBERI GAYA */}
-        <a 
-          href="mailto:arifajif@gmail.com" 
-          className={styles.emailButton}
-        >
-          Kirim Email
-        </a>
+        {/* Pesan status setelah submit */}
+        {submissionStatus === 'success' && (
+          <p className={`${styles.statusMessage} ${styles.success}`}>
+            Pesan terkirim! Terima kasih telah menghubungi saya.
+          </p>
+        )}
+        {submissionStatus === 'error' && (
+           <p className={`${styles.statusMessage} ${styles.error}`}>
+            Oops! Terjadi kesalahan. Silakan coba lagi.
+          </p>
+        )}
       </div>
     </section>
   );
