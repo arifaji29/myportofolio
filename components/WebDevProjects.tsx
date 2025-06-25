@@ -8,11 +8,11 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const webDevProjectsData = [
   {
-    image: '/images/project-web-dev.jpg',
-    title: 'Personal Portfolio Website',
-    description: 'Proyek personal untuk mendalami web development, dirancang di Figma dan dibangun dengan Next.js & React.',
-    githubUrl: 'https://github.com/your-username/your-repo',
-    liveUrl: '#',
+    image: '/images/web1.png',
+    title: 'Aplikasi Web - Daftar Belanja Emak',
+    description: '"Daftar Belanja Emak" adalah aplikasi web front-end interaktif yang berfungsi sebagai daftar belanjaan digital. Didesain dengan antarmuka yang modern dan mudah digunakan, aplikasi ini membantu pengguna untuk mencatat, melacak, dan mengelola daftar barang yang perlu dibeli secara efisien. Proyek ini dibangun sepenuhnya menggunakan teknologi web fundamental: HTML, CSS, dan JavaScript.',
+    githubUrl: 'https://github.com/arifaji29/My-List',
+    liveUrl: 'https://belanjaemak.vercel.app/',
   },
   // Tambahkan proyek web dev lainnya
 ];
