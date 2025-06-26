@@ -23,23 +23,31 @@
   padding: 1.5rem;
 }
 
-.captionContainer {
-  cursor: pointer;
+/* --- KELAS BARU UNTUK JUDUL --- */
+.cardTitle {
+  font-size: 1.25rem;  /* Sedikit lebih besar */
+  font-weight: 700;     /* Tebal */
+  margin-bottom: 0.75rem;
+  color: #111827;
 }
+/* ------------------------------- */
 
 .caption {
   color: #374151;
   margin: 0;
   line-height: 1.7;
-  /* Animasi saat ganti teks (opsional) */
   transition: all 0.3s ease-in-out;
 }
 
+.readMoreContainer {
+  cursor: pointer;
+  display: inline-block; /* Agar tidak memakan seluruh lebar */
+  margin-top: 0.75rem;
+}
+
 .readMore {
-  display: block;
   font-weight: 600;
   color: #0070f3;
-  margin-top: 0.5rem;
 }
 
 .behanceButton {
