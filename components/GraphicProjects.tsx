@@ -7,7 +7,7 @@ const graphicProjectsData = [
 
    {
     image: '/images/design2.png',
-    title: 'Logo Design',
+    title: 'Giggle Outen',
     fullDescription: 'Salah satu project yang saya kerjakan adalah pembuatan logo untuk produk edukatif anak bernama GIGGLE OUTEN. Produk ini berupa busy board mainan edukatif yang dirancang untuk melatih sensorik dan motorik anak-anak. Saya merancang logo yang mencerminkan kesan ceria, aman, dan ramah anak, sesuai dengan karakter produk dan target audiensnya.',
   },
    {
