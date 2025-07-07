@@ -67,3 +67,21 @@
 .behanceButton:hover {
   background-color: #002ac2;
 }
+
+.imageContainer {
+  cursor: pointer;
+  overflow: hidden; /* Agar efek zoom tidak keluar dari card */
+}
+
+/* Efek zoom sederhana saat gambar di-hover (opsional tapi keren) */
+.imageContainer:hover .image {
+  transform: scale(1.05);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease; /* Transisi untuk efek zoom */
+}

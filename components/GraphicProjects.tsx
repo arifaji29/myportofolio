@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import styles from './ProjectsSection.module.css';
 import ProjectCard from './ProjectCard';
-import ImagePreviewModal from './ImagePreviewModal'; // Impor modal baru
+import ImagePreviewModal from './ImagePreviewModal';
 
 const graphicProjectsData = [
 
@@ -42,22 +42,19 @@ const graphicProjectsData = [
 ];
 
 const GraphicProjects = () => {
-  // State untuk mengelola modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [previewImageUrl, setPreviewImageUrl] = useState('');
 
-  // Fungsi untuk membuka modal
   const openPreviewModal = (imageUrl: string) => {
     setPreviewImageUrl(imageUrl);
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Mencegah scroll di background
+    document.body.style.overflow = 'hidden';
   };
 
-  // Fungsi untuk menutup modal
   const closePreviewModal = () => {
     setIsModalOpen(false);
     setPreviewImageUrl('');
-    document.body.style.overflow = 'auto'; // Mengembalikan scroll
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -67,20 +64,19 @@ const GraphicProjects = () => {
           <h2 className={styles.title}>Graphic Design</h2>
           <div className={styles.grid}>
             {graphicProjectsData.map((project, index) => (
-              // Bungkus kartu dengan div yang bisa diklik
-              <div key={index} onClick={() => openPreviewModal(project.image)} style={{ cursor: 'pointer' }}>
-                <ProjectCard
-                  image={project.image}
-                  title={project.title}
-                  fullDescription={project.fullDescription}
-                />
-              </div>
+              // Hapus div pembungkus yang bisa diklik di sini
+              <ProjectCard 
+                key={index}
+                image={project.image}
+                title={project.title}
+                fullDescription={project.fullDescription}
+                onImageClick={openPreviewModal} // Berikan fungsi ke prop onImageClick
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Render komponen modal secara kondisional */}
       {isModalOpen && (
         <ImagePreviewModal imageUrl={previewImageUrl} onClose={closePreviewModal} />
       )}

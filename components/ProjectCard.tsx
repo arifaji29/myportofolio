@@ -12,38 +12,49 @@ interface ProjectCardProps {
   title: string;
   fullDescription: string;
   behanceUrl?: string;
+  onImageClick?: (imageUrl: string) => void; // PROPERTI BARU: untuk handle klik gambar
 }
 
-const ProjectCard = ({ image, title, fullDescription, behanceUrl }: ProjectCardProps) => {
+const ProjectCard = ({ image, title, fullDescription, behanceUrl, onImageClick }: ProjectCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Fungsi yang akan dijalankan saat gambar di-klik
+  const handleImageClick = () => {
+    // Hanya jalankan jika prop onImageClick diberikan
+    if (onImageClick) {
+      onImageClick(image);
+    }
+  };
 
   return (
     <div className={styles.card}>
-      <Image src={image} alt={title} width={500} height={300} className={styles.image} />
-      <div className={styles.content}>
-        
-        {/* --- PERUBAHAN UTAMA DI SINI --- */}
+      {/* --- PERUBAHAN DI SINI --- */}
+      <div onClick={handleImageClick} className={styles.imageContainer}>
+        <Image 
+          src={image} 
+          alt={title} 
+          width={500} 
+          height={300} 
+          className={styles.image} 
+        />
+      </div>
+      {/* ------------------------ */}
 
-        {/* 1. Judul sekarang menggunakan tag <h3> dan selalu terlihat */}
+      <div className={styles.content}>
         <h3 className={styles.cardTitle}>{title}</h3>
         
-        {/* 2. Deskripsi hanya muncul jika isExpanded adalah true */}
         {isExpanded && (
           <p className={styles.caption}>
             {fullDescription}
           </p>
         )}
-
-        {/* 3. Teks "Selengkapnya" / "Tutup" untuk memicu state */}
+        
         <div onClick={() => setIsExpanded(!isExpanded)} className={styles.readMoreContainer}>
           <span className={styles.readMore}>
             {isExpanded ? 'Tutup' : 'Selengkapnya...'}
           </span>
         </div>
-
-        {/* ------------------------------------ */}
         
-        {/* Tombol Behance (hanya muncul jika behanceUrl ada) */}
         {behanceUrl && (
           <Link href={behanceUrl} target="_blank" className={styles.behanceButton}>
             <FaBehanceSquare size={20} />
