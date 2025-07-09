@@ -47,7 +47,7 @@ export const allProjects: Project[] = [
         category: 'Graphic Design',
         image: '/images/design4.png',
         title: 'Katalogue Design',
-        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru yang memulai brandingnya melalui sosial media ',
+        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru baru yang memulai brandingnya melalui sosial media ',
     },
 
 
