@@ -1,0 +1,97 @@
+/* app/projects/[slug]/ProjectDetail.module.css */
+.pageContainer {
+  padding-top: 80px; /* Jarak dari navbar fixed */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+.header {
+  text-align: center;
+  padding: 4rem 1rem 2rem 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.category {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.25rem 1rem;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.mainImageContainer {
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .contentWrapper {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.description h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 0.5rem;
+}
+
+.description p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #374151;
+}
+
+.sidebar h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #374151;
+  background-color: #f3f4f6;
+  transition: background-color 0.2s ease;
+}
+
+.link:hover {
+  background-color: #e5e7eb;
+}

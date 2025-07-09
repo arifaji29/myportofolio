@@ -26,8 +26,8 @@ const Navbar = () => {
 
         {/* --- MENU DESKTOP --- */}
         <ul className={styles.menuDesktop}>
-          <li><Link href="#about">About</Link></li>
-          <li><Link href="#skills">Skills</Link></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/#skills">Skills</Link></li>
           
           {/* --- ITEM DROPDOWN PROJECTS --- */}
           <li 
@@ -40,15 +40,14 @@ const Navbar = () => {
             </span>
             {dropdownOpen && (
               <ul className={styles.dropdownMenu}>
-                <li><Link href="#graphic-design">Graphic Design</Link></li>
-                <li><Link href="#ui-ux">UI/UX</Link></li>
-                <li><Link href="#web-dev">Web Dev</Link></li>
+                <li><Link href="/#graphic-design">Graphic Design</Link></li>
+                <li><Link href="/#ui-ux">UI/UX</Link></li>
+                <li><Link href="/#web-dev">Web Dev</Link></li>
               </ul>
             )}
           </li>
           {/* ----------------------------- */}
-
-          <li><Link href="#contact">Contact</Link></li>
+          <li><Link href="/#contact">Contact</Link></li>
         </ul>
 
         {/* Tombol Hamburger untuk Mobile */}
@@ -63,8 +62,8 @@ const Navbar = () => {
               : styles.menuMobile
           }>
           <ul>
-            <li onClick={() => setMenuOpen(false)}><Link href="#about">About</Link></li>
-            <li onClick={() => setMenuOpen(false)}><Link href="#skills">Skills</Link></li>
+            <li onClick={() => setMenuOpen(false)}><Link href="/#about">About</Link></li>
+            <li onClick={() => setMenuOpen(false)}><Link href="/#skills">Skills</Link></li>
             
             {/* --- AKORDEON PROJECTS UNTUK MOBILE --- */}
             <li className={styles.dropdownMobile}>
@@ -76,15 +75,15 @@ const Navbar = () => {
               </div>
               {dropdownOpen && (
                 <ul className={styles.dropdownMenuMobile}>
-                  <li onClick={() => setMenuOpen(false)}><Link href="#graphic-design">Graphic Design</Link></li>
-                  <li onClick={() => setMenuOpen(false)}><Link href="#ui-ux">UI/UX</Link></li>
-                  <li onClick={() => setMenuOpen(false)}><Link href="#web-dev">Web Dev</Link></li>
+                  <li onClick={() => setMenuOpen(false)}><Link href="/#graphic-design">Graphic Design</Link></li>
+                  <li onClick={() => setMenuOpen(false)}><Link href="/#ui-ux">UI/UX</Link></li>
+                  <li onClick={() => setMenuOpen(false)}><Link href="/#web-dev">Web Dev</Link></li>
                 </ul>
               )}
             </li>
             {/* ------------------------------------- */}
 
-            <li onClick={() => setMenuOpen(false)}><Link href="#contact">Contact</Link></li>
+            <li onClick={() => setMenuOpen(false)}><Link href="/#contact">Contact</Link></li>
           </ul>
         </div>
       </div>

@@ -39,16 +39,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.readMoreContainer {
-  cursor: pointer;
-  display: inline-block; /* Agar tidak memakan seluruh lebar */
-  margin-top: 0.75rem;
-}
-
-.readMore {
-  font-weight: 600;
-  color: #0070f3;
-}
 
 .behanceButton {
   display: inline-flex;
@@ -84,4 +74,9 @@
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease; /* Transisi untuk efek zoom */
+}
+
+.cardLink {
+  text-decoration: none; /* Menghilangkan garis bawah dari link */
+  color: inherit; /* Mewarisi warna teks normal */
 }

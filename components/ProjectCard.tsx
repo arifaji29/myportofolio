@@ -1,68 +1,34 @@
 // components/ProjectCard.tsx
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectCard.module.css';
-import { FaBehanceSquare } from "react-icons/fa";
 
 interface ProjectCardProps {
   image: string;
   title: string;
-  fullDescription: string;
-  behanceUrl?: string;
-  onImageClick?: (imageUrl: string) => void; // PROPERTI BARU: untuk handle klik gambar
+  slug: string;
 }
 
-const ProjectCard = ({ image, title, fullDescription, behanceUrl, onImageClick }: ProjectCardProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  // Fungsi yang akan dijalankan saat gambar di-klik
-  const handleImageClick = () => {
-    // Hanya jalankan jika prop onImageClick diberikan
-    if (onImageClick) {
-      onImageClick(image);
-    }
-  };
-
+const ProjectCard = ({ image, title, slug }: ProjectCardProps) => {
   return (
-    <div className={styles.card}>
-      {/* --- PERUBAHAN DI SINI --- */}
-      <div onClick={handleImageClick} className={styles.imageContainer}>
-        <Image 
-          src={image} 
-          alt={title} 
-          width={500} 
-          height={300} 
-          className={styles.image} 
-        />
-      </div>
-      {/* ------------------------ */}
-
-      <div className={styles.content}>
-        <h3 className={styles.cardTitle}>{title}</h3>
-        
-        {isExpanded && (
-          <p className={styles.caption}>
-            {fullDescription}
-          </p>
-        )}
-        
-        <div onClick={() => setIsExpanded(!isExpanded)} className={styles.readMoreContainer}>
-          <span className={styles.readMore}>
-            {isExpanded ? 'Tutup' : 'Selengkapnya...'}
-          </span>
+    // Seluruh kartu sekarang adalah sebuah link ke halaman detail
+    <Link href={`/projects/${slug}`} className={styles.cardLink}>
+      <div className={styles.card}>
+        <div className={styles.imageContainer}>
+          <Image 
+            src={image} 
+            alt={title} 
+            width={500} 
+            height={300} 
+            className={styles.image} 
+          />
         </div>
-        
-        {behanceUrl && (
-          <Link href={behanceUrl} target="_blank" className={styles.behanceButton}>
-            <FaBehanceSquare size={20} />
-            Lihat di Behance
-          </Link>
-        )}
+        <div className={styles.content}>
+          <h3 className={styles.cardTitle}>{title}</h3>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
