@@ -5,40 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
 import { FaBehanceSquare, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import type { Metadata } from 'next';
 
-// Tipe untuk props, termasuk params
-type Props = {
-  params: { slug: string };
-};
-
-// --- FUNGSI UNTUK METADATA DINAMIS ---
-// UBAH CARA KITA MENERIMA PROPS DI SINI
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  // Lakukan destructuring di dalam fungsi
-  const { params } = props;
-  const slug = params.slug;
-
-  const project = allProjects.find((p) => p.slug === slug);
-
-  if (!project) {
-    return {
-      title: 'Proyek Tidak Ditemukan',
-    };
-  }
-
-  return {
-    title: `${project.title} | Portofolio Arif`,
-    description: project.fullDescription.substring(0, 160),
-  };
-}
-// ------------------------------------
-
-
-// --- KOMPONEN HALAMAN (TIDAK PERLU ASYNC) ---
-const ProjectDetailPage = ({ params }: Props) => {
+const ProjectDetailPage = ({ params }: { params: { slug: string } }) => {
+  // Cari proyek berdasarkan slug dari URL
   const project = allProjects.find((p) => p.slug === params.slug);
 
+  // Jika proyek tidak ditemukan, tampilkan halaman 404
   if (!project) {
     notFound();
   }
