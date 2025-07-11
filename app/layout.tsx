@@ -2,6 +2,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import 'aos/dist/aos.css';
+import { AOSInitializer } from '@/components/AOSInitializer';
 
 // Impor Navbar dan Footer
 import Navbar from "@/components/Navbar";
@@ -22,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <AOSInitializer /> 
         <Navbar /> {/* Letakkan Navbar di sini */}
         <main>
           {children} {/* {children} akan berisi page.tsx */}

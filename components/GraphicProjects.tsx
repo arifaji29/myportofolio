@@ -4,19 +4,21 @@
 import React from 'react';
 import styles from './ProjectsSection.module.css';
 import ProjectCard from './ProjectCard';
-import { allProjects } from '@/data/projects'; // Impor data terpusat
+import { allProjects } from '@/data/projects';
 
-// Filter hanya proyek Graphic Design
 const graphicProjectsData = allProjects.filter(p => p.category === 'Graphic Design');
 
 const GraphicProjects = () => {
   return (
     <section id="graphic-design" className={styles.projectSection}>
       <div className="container">
-        <h2 className={styles.title}>Graphic Design</h2>
-        <div className={styles.grid}>
+        {/* Animasi untuk judul */}
+        <h2 className={styles.title} data-aos="fade-down">Graphic Design</h2>
+        
+        {/* Animasi untuk grid */}
+        <div className={styles.grid} data-aos="fade-up">
           {graphicProjectsData.map((project) => (
-            <ProjectCard
+            <ProjectCard 
               key={project.slug}
               slug={project.slug}
               image={project.image}

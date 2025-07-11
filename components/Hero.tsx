@@ -7,16 +7,18 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <section className={styles.heroSection}>
-      <div>
+      {/* Kontainer untuk teks dengan animasi */}
+      <div data-aos="fade-right">
         <h1 className={styles.heroTitle}>Halo, saya Arif</h1>
-       <p className={styles.heroSubtitle}>Graphic Designer , UI/UX & Web Development Enthusiast</p>
+        <p className={styles.heroSubtitle}>Graphic Designer, UI/UX & Web Development Enthusiast</p>
         
-        {/* Pastikan menggunakan styles.heroButton */}
         <Link href="#graphic-design" className={styles.heroButton}>
           Lihat Proyek Saya
         </Link>
       </div>
-      <div className={styles.heroImageContainer}>
+      
+      {/* Kontainer untuk gambar dengan animasi */}
+      <div className={styles.heroImageContainer} data-aos="fade-left" data-aos-delay="200">
         <Image
           src="/images/profile-picture.png" // Ganti dengan path gambar Anda di folder /public
           alt="Foto Profil Arif"

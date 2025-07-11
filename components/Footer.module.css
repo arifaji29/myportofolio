@@ -6,3 +6,28 @@
   padding: 2rem 1rem;
   width: 100%;
 }
+
+
+/* Tambahkan kode ini di components/Footer.module.css */
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Jarak antar ikon */
+  margin-bottom: 1.5rem;
+}
+
+.socialLinks a {
+  color: #d1d5db; /* Warna ikon abu-abu terang */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: #ffffff; /* Warna menjadi putih saat di-hover */
+  transform: translateY(-3px); /* Ikon sedikit naik saat di-hover */
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.9rem;
+}

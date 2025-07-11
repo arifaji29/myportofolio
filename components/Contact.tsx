@@ -63,15 +63,19 @@ const Contact = () => {
     }
   };
 
+
   return (
     <section id="contact" className={styles.contact}>
       <div className="container">
-        <h2 className={styles.title}>Hubungi Saya</h2>
-        <p className={styles.subtitle}>
+        {/* Animasi untuk judul */}
+        <h2 className={styles.title} data-aos="fade-down">Hubungi Saya</h2>
+        {/* Animasi untuk subjudul */}
+        <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="100">
           Punya pertanyaan atau ingin berkolaborasi? Isi form di bawah ini!
         </p>
 
-        <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Animasi untuk seluruh form */}
+        <form onSubmit={handleSubmit} className={styles.form} data-aos="fade-up" data-aos-delay="200">
           <div className={styles.formGroup}>
             <label htmlFor="name">Nama</label>
             <input 

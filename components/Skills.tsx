@@ -9,15 +9,14 @@ import {
   SiCoreldraw, 
   SiCanva 
 } from 'react-icons/si';
-import { FaFigma, FaHtml5, FaCss3Alt, FaJsSquare } from 'react-icons/fa'; // Menambah ikon HTML, CSS, JS
+import { FaFigma, FaHtml5, FaCss3Alt, FaJsSquare } from 'react-icons/fa';
 
 // --- Data Skill Diperbarui ---
 const skillsData = [
   { name: 'Figma', icon: <FaFigma size={50} /> },
-  // -- PERUBAHAN DI SINI --
   { 
     name: 'Web Development', 
-    icon: [ // Ikon sekarang adalah sebuah array
+    icon: [
       <FaHtml5 key="html" size={40} />, 
       <FaCss3Alt key="css" size={40} />, 
       <FaJsSquare key="js" size={40} />
@@ -33,11 +32,19 @@ const Skills = () => {
   return (
     <section id="skills" className={styles.skills}>
       <div className="container">
-        <h2 className={styles.title}>Software & Keahlian</h2>
+        {/* Animasi untuk judul */}
+        <h2 className={styles.title} data-aos="fade-down">Software & Keahlian</h2>
+        
         <div className={styles.skillsGrid}>
-          {skillsData.map((skill) => (
-            <div key={skill.name} className={styles.skillCard}>
-              {/* -- LOGIKA BARU UNTUK MENAMPILKAN IKON -- */}
+          {/* Tambahkan 'index' untuk membuat delay animasi */}
+          {skillsData.map((skill, index) => (
+            // Animasi untuk setiap kartu
+            <div 
+              key={skill.name} 
+              className={styles.skillCard} 
+              data-aos="zoom-in" 
+              data-aos-delay={index * 100}
+            >
               {Array.isArray(skill.icon) ? (
                 <div className={styles.iconGroup}>
                   {skill.icon}
