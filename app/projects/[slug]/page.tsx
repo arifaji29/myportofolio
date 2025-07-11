@@ -6,26 +6,22 @@ import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
 import { FaBehanceSquare, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import type { Metadata } from 'next';
+import { use } from 'react'; // <-- TAMBAHKAN IMPOR INI
 
-// Tipe untuk props, termasuk params
+// Tipe untuk props, kita biarkan seperti ini untuk generateMetadata
 type Props = {
   params: { slug: string };
 };
 
-// --- FUNGSI BARU UNTUK MEMBERITAHU NEXT.JS SEMUA HALAMAN PROYEK ---
+// --- FUNGSI generateStaticParams (BIARKAN SEPERTI INI) ---
 export async function generateStaticParams() {
-  // Ambil semua data proyek
   const projects = allProjects;
- 
-  // Kembalikan array dari semua slug yang ada
   return projects.map((project) => ({
     slug: project.slug,
   }));
 }
-// -----------------------------------------------------------------
 
-
-// --- FUNGSI UNTUK METADATA DINAMIS ---
+// --- FUNGSI generateMetadata (BIARKAN SEPERTI INI) ---
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
   const project = allProjects.find((p) => p.slug === slug);
@@ -39,12 +35,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: project.fullDescription.substring(0, 160),
   };
 }
-// ------------------------------------
 
 
-// --- KOMPONEN HALAMAN (TIDAK PERLU ASYNC) ---
-const ProjectDetailPage = ({ params }: Props) => {
-  const project = allProjects.find((p) => p.slug === params.slug);
+// --- KOMPONEN HALAMAN DENGAN PERUBAHAN ---
+const ProjectDetailPage = ({ params }: { params: Promise<{ slug: string }> }) => {
+  // 1. Kita secara eksplisit menerima 'params' sebagai sebuah Promise
+  // 2. Gunakan hook 'use' untuk "membuka" nilai dari Promise tersebut
+  const { slug } = use(params);
+
+  // Mulai dari sini, kode kembali normal karena 'slug' sudah berupa string
+  const project = allProjects.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
