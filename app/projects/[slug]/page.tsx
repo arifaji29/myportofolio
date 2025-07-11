@@ -5,12 +5,47 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
 import { FaBehanceSquare, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import type { Metadata } from 'next';
 
-const ProjectDetailPage = ({ params }: { params: { slug: string } }) => {
-  // Cari proyek berdasarkan slug dari URL
+// Tipe untuk props, termasuk params
+type Props = {
+  params: { slug: string };
+};
+
+// --- FUNGSI BARU UNTUK MEMBERITAHU NEXT.JS SEMUA HALAMAN PROYEK ---
+export async function generateStaticParams() {
+  // Ambil semua data proyek
+  const projects = allProjects;
+ 
+  // Kembalikan array dari semua slug yang ada
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+// -----------------------------------------------------------------
+
+
+// --- FUNGSI UNTUK METADATA DINAMIS ---
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.slug;
+  const project = allProjects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return { title: 'Proyek Tidak Ditemukan' };
+  }
+
+  return {
+    title: `${project.title} | Portofolio Arif`,
+    description: project.fullDescription.substring(0, 160),
+  };
+}
+// ------------------------------------
+
+
+// --- KOMPONEN HALAMAN (TIDAK PERLU ASYNC) ---
+const ProjectDetailPage = ({ params }: Props) => {
   const project = allProjects.find((p) => p.slug === params.slug);
 
-  // Jika proyek tidak ditemukan, tampilkan halaman 404
   if (!project) {
     notFound();
   }
