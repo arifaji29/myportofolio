@@ -6,14 +6,14 @@ import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
 import { FaBehanceSquare, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import type { Metadata } from 'next';
-import { use } from 'react'; // <-- TAMBAHKAN IMPOR INI
 
-// Tipe untuk props, kita biarkan seperti ini untuk generateMetadata
+// --- PERUBAHAN TIPE PROPS ---
+// Sekarang kita definisikan 'params' sebagai sebuah Promise, sesuai dokumentasi
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-// --- FUNGSI generateStaticParams (BIARKAN SEPERTI INI) ---
+// --- FUNGSI generateStaticParams (TIDAK BERUBAH) ---
 export async function generateStaticParams() {
   const projects = allProjects;
   return projects.map((project) => ({
@@ -21,10 +21,11 @@ export async function generateStaticParams() {
   }));
 }
 
-// --- FUNGSI generateMetadata (BIARKAN SEPERTI INI) ---
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.slug;
-  const project = allProjects.find((p) => p.slug === slug);
+// --- FUNGSI generateMetadata DENGAN POLA BARU ---
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  // Tunggu hingga props.params (Promise) selesai, lalu ambil nilainya
+  const params = await props.params;
+  const project = allProjects.find((p) => p.slug === params.slug);
 
   if (!project) {
     return { title: 'Proyek Tidak Ditemukan' };
@@ -36,15 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-
-// --- KOMPONEN HALAMAN DENGAN PERUBAHAN ---
-const ProjectDetailPage = ({ params }: { params: Promise<{ slug: string }> }) => {
-  // 1. Kita secara eksplisit menerima 'params' sebagai sebuah Promise
-  // 2. Gunakan hook 'use' untuk "membuka" nilai dari Promise tersebut
-  const { slug } = use(params);
-
-  // Mulai dari sini, kode kembali normal karena 'slug' sudah berupa string
-  const project = allProjects.find((p) => p.slug === slug);
+// --- KOMPONEN HALAMAN DENGAN POLA BARU (MENJADI ASYNC) ---
+export default async function ProjectDetailPage(props: Props) {
+  // Tunggu hingga props.params (Promise) selesai, lalu ambil nilainya
+  const params = await props.params;
+  const project = allProjects.find((p) => p.slug === params.slug);
 
   if (!project) {
     notFound();
@@ -84,6 +81,4 @@ const ProjectDetailPage = ({ params }: { params: Promise<{ slug: string }> }) =>
       </div>
     </div>
   );
-};
-
-export default ProjectDetailPage;
+}
