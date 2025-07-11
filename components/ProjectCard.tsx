@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectCard.module.css';
 
+// Interface sekarang hanya butuh ini
 interface ProjectCardProps {
   image: string;
   title: string;

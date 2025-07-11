@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
-import { FaBehanceSquare, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import type { Metadata } from 'next';
 
 // --- PERUBAHAN TIPE PROPS ---
@@ -75,7 +75,6 @@ export default async function ProjectDetailPage(props: Props) {
           <div className={styles.links}>
             {project.liveUrl && <Link href={project.liveUrl} target="_blank" className={styles.link}><FaExternalLinkAlt /> Live View</Link>}
             {project.githubUrl && <Link href={project.githubUrl} target="_blank" className={styles.link}><FaGithub /> GitHub</Link>}
-            {project.behanceUrl && <Link href={project.behanceUrl} target="_blank" className={styles.link}><FaBehanceSquare /> Behance</Link>}
           </div>
         </aside>
       </div>

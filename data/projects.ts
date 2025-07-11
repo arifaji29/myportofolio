@@ -6,7 +6,6 @@ export interface Project {
     image: string;
     fullDescription: string;
     // Properti opsional
-    behanceUrl?: string;
     githubUrl?: string;
     liveUrl?: string;
 }
@@ -63,7 +62,7 @@ export const allProjects: Project[] = [
         image: '/images/uiux1.png',
         title: 'Redesain Aplikasi PLN Mobile',
         fullDescription: 'Studi kasus ini berfokus pada identifikasi masalah pengguna dalam aplikasi yang ada dan merancang ulang alur transaksi agar lebih cepat dan intuitif. Proses meliputi riset, pembuatan user journey, wireframe, hingga prototipe hi-fi.',
-        behanceUrl: 'https://www.behance.net/your-profile', // Ganti dengan link Behance Anda
+       
     },
     {
         slug: 'toko-online-khusus-gadget',
@@ -71,7 +70,7 @@ export const allProjects: Project[] = [
         image: '/images/uiux2.png',
         title: 'Aplikasi jual beli online',
         fullDescription: 'Studi kasus ini berfokus pada identifikasi masalah pengguna dalam aplikasi yang ada dan merancang ulang alur transaksi agar lebih cepat dan intuitif. Proses meliputi riset, pembuatan user journey, wireframe, hingga prototipe hi-fi.',
-        behanceUrl: 'https://www.behance.net/your-profile', // Ganti dengan link Behance Anda
+       
     },
 
     // --- Proyek Web Development ---

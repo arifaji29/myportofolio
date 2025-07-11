@@ -16,7 +16,7 @@ const GraphicProjects = () => {
         <h2 className={styles.title}>Graphic Design</h2>
         <div className={styles.grid}>
           {graphicProjectsData.map((project) => (
-            <ProjectCard 
+            <ProjectCard
               key={project.slug}
               slug={project.slug}
               image={project.image}
