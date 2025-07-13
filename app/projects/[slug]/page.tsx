@@ -4,14 +4,16 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
-import { FaGithub, FaExternalLinkAlt, FaBehanceSquare } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import type { Metadata } from 'next';
 
+// --- PERUBAHAN TIPE PROPS ---
+// Sekarang kita definisikan 'params' sebagai sebuah Promise, sesuai dokumentasi
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-// Fungsi generateStaticParams (TIDAK BERUBAH)
+// --- FUNGSI generateStaticParams (TIDAK BERUBAH) ---
 export async function generateStaticParams() {
   const projects = allProjects;
   return projects.map((project) => ({
@@ -19,8 +21,9 @@ export async function generateStaticParams() {
   }));
 }
 
-// Fungsi generateMetadata (TIDAK BERUBAH)
+// --- FUNGSI generateMetadata DENGAN POLA BARU ---
 export async function generateMetadata(props: Props): Promise<Metadata> {
+  // Tunggu hingga props.params (Promise) selesai, lalu ambil nilainya
   const params = await props.params;
   const project = allProjects.find((p) => p.slug === params.slug);
 
@@ -34,8 +37,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-// Komponen Halaman (Ditambahkan AOS)
+// --- KOMPONEN HALAMAN DENGAN POLA BARU (MENJADI ASYNC) ---
 export default async function ProjectDetailPage(props: Props) {
+  // Tunggu hingga props.params (Promise) selesai, lalu ambil nilainya
   const params = await props.params;
   const project = allProjects.find((p) => p.slug === params.slug);
 
@@ -45,12 +49,12 @@ export default async function ProjectDetailPage(props: Props) {
 
   return (
     <div className={styles.pageContainer}>
-      <header className={styles.header} data-aos="fade-down">
+      <header className={styles.header}>
         <h1 className={styles.title}>{project.title}</h1>
         <p className={styles.category}>{project.category}</p>
       </header>
       
-      <div className={styles.mainImageContainer} data-aos="zoom-in" data-aos-delay="200">
+      <div className={styles.mainImageContainer}>
         <Image 
           src={project.image}
           alt={project.title}
@@ -62,11 +66,11 @@ export default async function ProjectDetailPage(props: Props) {
       </div>
 
       <div className={styles.contentWrapper}>
-        <main className={styles.description} data-aos="fade-right" data-aos-delay="400">
+        <main className={styles.description}>
           <h2>Tentang Proyek</h2>
           <p>{project.fullDescription}</p>
         </main>
-        <aside className={styles.sidebar} data-aos="fade-left" data-aos-delay="500">
+        <aside className={styles.sidebar}>
           <h3>Detail</h3>
           <div className={styles.links}>
             {project.liveUrl && <Link href={project.liveUrl} target="_blank" className={styles.link}><FaExternalLinkAlt /> Live View</Link>}
