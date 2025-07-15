@@ -2,9 +2,9 @@
 import { allProjects } from '@/data/projects';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
-import { FaGithub, FaExternalLinkAlt, FaBehanceSquare } from 'react-icons/fa';
+// import { FaGithub, FaExternalLinkAlt, FaBehanceSquare } from 'react-icons/fa';
 import type { Metadata } from 'next';
 
 // --- Tipe Props Diperbarui Sesuai Dokumentasi ---
