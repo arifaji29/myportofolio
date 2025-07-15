@@ -1,13 +1,19 @@
 // Kita definisikan tipe data untuk setiap proyek agar konsisten
+
+type ContentBlock = 
+  | { type: 'heading'; level: 2 | 3; text: string }
+  | { type: 'paragraph'; text: string }
+  | { type: 'image'; src: string; alt: string };
+  
 export interface Project {
-    slug: string;
-    category: 'Graphic Design' | 'UI/UX' | 'Web Development';
-    title: string;
-    image: string;
-    fullDescription: string;
-    // Properti opsional
-    githubUrl?: string;
-    liveUrl?: string;
+  slug: string;
+  category: 'Graphic Design' | 'UI/UX' | 'Web Development';
+  title: string;
+  image: string; // Ini akan menjadi gambar utama/thumbnail
+  content: ContentBlock[]; // Ganti fullDescription dengan ini
+  // Properti opsional
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const allProjects: Project[] = [
@@ -17,7 +23,22 @@ export const allProjects: Project[] = [
         category: 'Graphic Design',
         image: '/images/design2.png',
         title: 'Logo Design',
-        fullDescription: 'Salah satu project yang saya kerjakan adalah pembuatan logo untuk produk edukatif anak bernama GIGGLE OUTEN. Produk ini berupa busy board mainan edukatif yang dirancang untuk melatih sensorik dan motorik anak-anak. Saya merancang logo yang mencerminkan kesan ceria, aman, dan ramah anak, sesuai dengan karakter produk dan target audiensnya.',
+           content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Giggle Outen' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/giggle.png', // Gambar detail di dalam "blog"
+        alt: 'logo giggle outen' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Giggle outem adalah brand untuk mainan kayu edukatif untuk anak.' 
+      },
+    ]
     },
 
     {
@@ -25,28 +46,90 @@ export const allProjects: Project[] = [
         category: 'Graphic Design',
         image: '/images/design1.png',
         title: 'Feed Instagram Design',
-        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru yang memulai brandingnya melalui sosial media ',
+        content: [
+      
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Jiecos Instagram Feed' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Jiecos adalah brand skincare' 
+      },
+    ]
     },
     {
         slug: 'post-stories-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
         image: '/images/design6.png',
         title: 'Post Stories Design',
-        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru yang memulai brandingnya melalui sosial media ',
+        content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Enzocafedia Stories' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Enzoacafedia adalah brand' 
+      },
+    ]
     },
     {
         slug: 'marketpalce-banner-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
         image: '/images/design5.png',
         title: 'Marketplace Banner Design',
-        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru yang memulai brandingnya melalui sosial media ',
+        content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Enzcocafedia Banner Shopee' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Shopee adalah' 
+      },
+    ]
     },
     {
         slug: 'web-katalog-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
         image: '/images/design4.png',
         title: 'Katalogue Design',
-        fullDescription: 'Salah satu project yang sering saya kerjakan adalah membuat feed atau carousel di Instagram. Salah satu project yang saya kerjakan dalah feed Instagram JIECOS BEAUTY. Produk skincare pendatang baru baru yang memulai brandingnya melalui sosial media ',
+       content: [
+    
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Katalog Kaos Enzo' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-blogaku1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'kaosenzo adalah' 
+      },
+    ]
     },
 
 
@@ -61,7 +144,22 @@ export const allProjects: Project[] = [
         category: 'UI/UX',
         image: '/images/uiux1.png',
         title: 'Redesain Aplikasi PLN Mobile',
-        fullDescription: 'Studi kasus ini berfokus pada identifikasi masalah pengguna dalam aplikasi yang ada dan merancang ulang alur transaksi agar lebih cepat dan intuitif. Proses meliputi riset, pembuatan user journey, wireframe, hingga prototipe hi-fi.',
+        content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'PLN Mobile' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'pln mobile adalah' 
+      },
+    ]
        
     },
     {
@@ -69,7 +167,22 @@ export const allProjects: Project[] = [
         category: 'UI/UX',
         image: '/images/uiux2.png',
         title: 'Aplikasi jual beli online',
-        fullDescription: 'Studi kasus ini berfokus pada identifikasi masalah pengguna dalam aplikasi yang ada dan merancang ulang alur transaksi agar lebih cepat dan intuitif. Proses meliputi riset, pembuatan user journey, wireframe, hingga prototipe hi-fi.',
+       content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Recom Gadget' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Recom Gadget adalah' 
+      },
+    ]
        
     },
 
@@ -79,17 +192,47 @@ export const allProjects: Project[] = [
         category: 'Web Development',
         image: '/images/web-dev1.jpg',
         title: 'Aplikasi Web - Daftar Belanja Emak',
-        fullDescription: '"Daftar Belanja Emak" adalah aplikasi web front-end interaktif yang berfungsi sebagai daftar belanjaan digital. Didesain dengan antarmuka yang modern dan mudah digunakan, aplikasi ini membantu pengguna untuk mencatat, melacak, dan mengelola daftar barang yang perlu dibeli secara efisien. Proyek ini dibangun sepenuhnya menggunakan teknologi web fundamental: HTML, CSS, dan JavaScript.',
         githubUrl: 'https://github.com/arifaji29/My-List',
         liveUrl: 'https://belanjaemak.vercel.app/',
+        content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Proses Desain' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Hasil akhirnya adalah sebuah sistem identitas yang fleksibel, dapat diterapkan pada kemasan, menu, media sosial, dan merchandise, menciptakan pengalaman merek yang kohesif.' 
+      },
+    ]
     },
     {
         slug: 'website-portofolio-pribadi',
         category: 'Web Development',
         image: '/images/web-dev1.jpg',
         title: 'Aplikasi Web - Daftar Belanja Emak',
-        fullDescription: '"Daftar Belanja Emak" adalah aplikasi web front-end interaktif yang berfungsi sebagai daftar belanjaan digital. Didesain dengan antarmuka yang modern dan mudah digunakan, aplikasi ini membantu pengguna untuk mencatat, melacak, dan mengelola daftar barang yang perlu dibeli secara efisien. Proyek ini dibangun sepenuhnya menggunakan teknologi web fundamental: HTML, CSS, dan JavaScript.',
         githubUrl: 'https://github.com/arifaji29/My-List',
         liveUrl: 'https://belanjaemak.vercel.app/',
+        content: [
+      { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Proses Desain' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/desing2.jpg', // Gambar detail di dalam "blog"
+        alt: 'Proses sketsa logo kopi' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Hasil akhirnya adalah sebuah sistem identitas yang fleksibel, dapat diterapkan pada kemasan, menu, media sosial, dan merchandise, menciptakan pengalaman merek yang kohesif.' 
+      },
+    ]
     },
 ];
