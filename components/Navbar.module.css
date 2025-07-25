@@ -1,7 +1,6 @@
 /* components/Navbar.module.css */
 
 .navbar {
-  /* Menggunakan latar primer (putih / hitam kebiruan) */
   background-color: rgb(var(--bg-primary-rgb));
   border-bottom: 1px solid rgb(var(--border-color-rgb));
   width: 100%;
@@ -26,7 +25,7 @@
 .controlsContainer {
   display: flex;
   align-items: center;
-  gap: 2rem; /* opsional: memberi jarak antar elemen */
+  gap: 2rem;
 }
 
 .logo {
@@ -65,15 +64,11 @@
   color: rgb(var(--foreground-rgb));
 }
 
-
-
 .actionGroup {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
-
 
 /* --- Gaya Dropdown --- */
 .dropdown {
@@ -100,7 +95,6 @@
   top: 90%;
   left: 50%;
   transform: translateX(-50%);
-  /* Menggunakan latar primer agar warnanya sama dengan navbar */
   background-color: rgb(var(--bg-primary-rgb));
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -120,10 +114,13 @@
   transition: background-color 0.2s ease;
 }
 
+.dropdownMenu li:not(:first-child) a {
+  border-top: 1px solid rgb(var(--border-color-rgb));
+}
+
 .dropdownMenu li a:hover {
   background-color: rgb(var(--hover-background-rgb));
 }
-
 
 /* --- Gaya Menu Mobile --- */
 .menuMobile {
@@ -132,7 +129,6 @@
   left: -100%;
   width: 100%;
   height: calc(100vh - 80px);
-  /* Menggunakan latar primer agar warnanya sama dengan navbar */
   background-color: rgb(var(--bg-primary-rgb));
   display: flex;
   flex-direction: column;
@@ -145,9 +141,11 @@
   left: 0;
 }
 
-.menuMobile ul, .dropdownMenuMobile {
+.menuMobile ul,
+.dropdownMenuMobile {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .menuMobile li {
@@ -155,10 +153,21 @@
   padding: 1rem 0;
 }
 
+/* Garis pemisah antar item menuMobile */
+.menuMobile li:not(:first-child) {
+  border-top: 1px solid rgb(var(--border-color-rgb));
+}
+
 .menuMobile a {
   font-size: 2rem;
   color: rgb(var(--foreground-rgb));
   text-decoration: none;
+}
+
+/* Active style untuk link menuMobile */
+.menuMobile a:active {
+  background-color: rgb(var(--hover-background-rgb));
+  color: rgb(var(--foreground-rgb));
 }
 
 /* --- Gaya Akordeon Mobile --- */
@@ -188,12 +197,22 @@
   padding: 1rem 0;
 }
 
+/* Garis pemisah antar item dropdown mobile */
+.dropdownMenuMobile li:not(:first-child) {
+  border-top: 1px solid rgb(var(--border-color-rgb));
+}
+
 .dropdownMenuMobile a {
   font-size: 1.5rem;
   color: rgb(var(--muted-foreground-rgb));
+  text-decoration: none;
 }
 
-
+/* Active style untuk link dropdown mobile */
+.dropdownMenuMobile a:active {
+  background-color: rgb(var(--border-color-rgb));
+  color: rgb(var(--foreground-rgb));
+}
 
 /* --- MEDIA QUERY --- */
 @media screen and (min-width: 768px) {
