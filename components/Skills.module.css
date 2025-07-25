@@ -1,6 +1,7 @@
 /* components/Skills.module.css */
 .skills {
-  background-color: #f9fafb; /* Latar belakang abu-abu muda */
+  /* Menggunakan variabel latar sekunder (abu-abu terang / abu-abu gelap) */
+  background-color: rgb(var(--bg-secondary-rgb));
   padding: 6rem 0;
 }
 
@@ -9,7 +10,8 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 4rem;
-  color: #111827;
+  /* Menggunakan variabel teks utama */
+  color: rgb(var(--foreground-rgb));
 }
 
 .skillsGrid {
@@ -21,19 +23,22 @@
 }
 
 .skillCard {
-  background-color: #ffffff;
+  /* Menggunakan variabel latar primer (putih / hitam kebiruan) */
+  background-color: rgb(var(--bg-primary-rgb));
   border-radius: 10px;
   padding: 2rem 1rem;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Shadow ini cukup subtil untuk kedua mode */
+  border: 1px solid rgb(var(--border-color-rgb)); /* Tambahkan border agar kontras di dark mode */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #374151;
+  /* Menggunakan variabel teks sekunder */
+  color: rgb(var(--muted-foreground-rgb));
 }
 
 .skillCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  color: #0070f3;
+  color: #0070f3; /* Warna aksen bisa tetap sama */
 }
 
 .skillCard p {
@@ -45,6 +50,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem; /* Memberi jarak antar ikon */
-  height: 50px; /* Menyamakan tinggi dengan ikon tunggal */
+  gap: 0.75rem;
+  height: 50px;
 }

@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import 'aos/dist/aos.css';
-import { AOSInitializer } from '@/components/AOSInitializer';
 
-// Impor Navbar dan Footer
+// Impor komponen yang dibutuhkan
+import { AOSInitializer } from '@/components/AOSInitializer';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Providers from "@/components/ThemeProvider"; // <-- 1. Impor ThemeProvider
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +23,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // 2. Tambahkan suppressHydrationWarning dan ubah bahasa
+    <html lang="id" suppressHydrationWarning> 
       <body className={inter.className}>
-        <AOSInitializer /> 
-        <Navbar /> {/* Letakkan Navbar di sini */}
-        <main>
-          {children} {/* {children} akan berisi page.tsx */}
-        </main>
-        <Footer /> {/* Letakkan Footer di sini */}
+        {/* 3. Bungkus semua konten dengan Providers */}
+        <Providers>
+          <AOSInitializer /> 
+          <Navbar />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

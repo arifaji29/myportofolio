@@ -1,6 +1,8 @@
 /* app/projects/[slug]/ProjectDetail.module.css */
 .pageContainer {
-  padding-top: 80px; /* Jarak dari navbar fixed */
+  /* Menggunakan variabel latar sekunder (abu-abu terang / abu-abu gelap) */
+  background-color: rgb(var(--bg-secondary-rgb));
+  padding-top: 80px;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 5rem;
@@ -14,15 +16,17 @@
 .title {
   font-size: 3rem;
   font-weight: 800;
-  color: #111827;
+  /* Menggunakan variabel teks utama */
+  color: rgb(var(--foreground-rgb));
 }
 
 .category {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.25rem 1rem;
-  background-color: #e5e7eb;
-  color: #4b5563;
+  /* Menggunakan variabel untuk latar dan teks */
+  background-color: rgb(var(--border-color-rgb));
+  color: rgb(var(--muted-foreground-rgb));
   border-radius: 9999px;
   font-weight: 600;
 }
@@ -57,20 +61,24 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #f3f4f6;
+  /* Menggunakan variabel border dan teks */
+  border-bottom: 2px solid rgb(var(--border-color-rgb));
+  color: rgb(var(--foreground-rgb));
   padding-bottom: 0.5rem;
 }
 
 .description p {
   line-height: 1.8;
   font-size: 1.1rem;
-  color: #374151;
+  /* Menggunakan variabel teks sekunder */
+  color: rgb(var(--muted-foreground-rgb));
 }
 
 .sidebar h3 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: rgb(var(--foreground-rgb));
 }
 
 .links {
@@ -87,11 +95,13 @@
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  color: #374151;
-  background-color: #f3f4f6;
+  /* Menggunakan variabel untuk latar dan teks */
+  color: rgb(var(--muted-foreground-rgb));
+  background-color: rgb(var(--border-color-rgb));
   transition: background-color 0.2s ease;
 }
 
 .link:hover {
-  background-color: #e5e7eb;
+  /* Menggunakan variabel hover */
+  background-color: rgb(var(--hover-background-rgb));
 }

@@ -1,10 +1,12 @@
 /* components/ProjectCard.module.css */
 .card {
-  background: #fff;
+  /* Menggunakan variabel untuk background dan border */
+  background: rgb(var(--bg-primary-rgb)); 
+  border: 1px solid rgb(var(--border-color-rgb));
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
@@ -12,58 +14,11 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-.image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
-.content {
-  padding: 1.5rem;
-}
-
-/* --- KELAS BARU UNTUK JUDUL --- */
-.cardTitle {
-  font-size: 1.25rem;  /* Sedikit lebih besar */
-  font-weight: 700;     /* Tebal */
-  margin-bottom: 0.75rem;
-  color: #111827;
-}
-/* ------------------------------- */
-
-.caption {
-  color: #374151;
-  margin: 0;
-  line-height: 1.7;
-  transition: all 0.3s ease-in-out;
-}
-
-
-.behanceButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #053eff;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.behanceButton:hover {
-  background-color: #002ac2;
-}
-
 .imageContainer {
   cursor: pointer;
-  overflow: hidden; /* Agar efek zoom tidak keluar dari card */
+  overflow: hidden;
 }
 
-/* Efek zoom sederhana saat gambar di-hover (opsional tapi keren) */
 .imageContainer:hover .image {
   transform: scale(1.05);
 }
@@ -73,10 +28,31 @@
   height: auto;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease; /* Transisi untuk efek zoom */
+  transition: transform 0.3s ease;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  /* Menggunakan variabel untuk warna teks */
+  color: rgb(var(--foreground-rgb));
+}
+
+.caption {
+  /* Menggunakan variabel untuk warna teks sekunder */
+  color: rgb(var(--muted-foreground-rgb));
+  margin: 0;
+  line-height: 1.7;
+  transition: all 0.3s ease-in-out;
 }
 
 .cardLink {
-  text-decoration: none; /* Menghilangkan garis bawah dari link */
-  color: inherit; /* Mewarisi warna teks normal */
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }

@@ -2,41 +2,47 @@
 
 .heroSection {
   display: flex;
-  flex-direction: column; /* Ubah ke kolom untuk mobile */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #f9fafb;
+  /* Menggunakan variabel untuk background */
+  background-color: rgb(var(--bg-secondary-rgb));
+  transition: background-color 0.3s ease;
 }
 
 .heroTitle {
-  font-size: 3rem;
-  font-weight: 800; /* Lebih tebal */
-  color: #111827;
+  font-size: 2rem;
+  font-weight: 800;
+  /* Menggunakan variabel untuk warna teks */
+  color: rgb(var(--foreground));
+}
+
+.heroName {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: var(--brand-gradient);
 }
 
 .heroSubtitle {
   font-size: 1.25rem;
-  color: #6b7280;
+  /* Menggunakan variabel untuk warna teks sekunder */
+  color: rgb(var(--muted-foreground));
   margin-top: 0.5rem;
   margin-bottom: 2rem;
 }
 
-/* INI BAGIAN PENTING UNTUK TOMBOL */
 .heroButton {
   display: inline-block;
-  color: #ffffff; /* Teks putih */
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
-  border-radius: 100px;
+  border-radius: 9999px;
   font-weight: 600;
   text-decoration: none;
-  
-  /* Ganti background-color dengan background-image */
   background-image: var(--brand-gradient);
-
-  /* Efek hover yang lebih keren untuk gradasi */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -53,15 +59,18 @@
 .heroImage {
   border-radius: 50%;
   object-fit: cover;
-  width: 250px;  /* Ukuran disesuaikan */
-  height: 250px; /* Ukuran disesuaikan */
+  width: 250px;
+  height: 250px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* Tambahkan border halus untuk dark mode */
+  border: 4px solid rgb(var(--card-background));
+  transition: border-color 0.3s ease;
 }
 
 /* Aturan untuk desktop */
 @media screen and (min-width: 768px) {
   .heroSection {
-    flex-direction: row; /* Kembali ke baris untuk desktop */
+    flex-direction: row;
     justify-content: space-around;
     text-align: left;
   }
@@ -74,4 +83,3 @@
     font-size: 4rem;
   }
 }
-

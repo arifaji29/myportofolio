@@ -1,12 +1,15 @@
 /* components/ProjectsSection.module.css */
 .projectSection {
   padding: 6rem 0;
-  background-color: #ffffff;
+  /* Menggunakan variabel latar primer (putih / hitam kebiruan) */
+  background-color: rgb(var(--bg-primary-rgb));
+  transition: background-color 0.3s ease;
 }
 
 /* Section dengan latar belakang abu-abu */
 .projectSection.alternate {
-  background-color: #f9fafb;
+  /* Menggunakan variabel latar sekunder (abu-abu terang / abu-abu gelap) */
+  background-color: rgb(var(--bg-secondary-rgb));
 }
 
 .title {
@@ -14,7 +17,8 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 4rem;
-  color: #111827;
+  /* Menggunakan variabel teks utama */
+  color: rgb(var(--foreground-rgb));
 }
 
 .grid {
