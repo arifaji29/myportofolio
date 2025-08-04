@@ -21,8 +21,8 @@ export const allProjects: Project[] = [
     {
         slug: 'logo-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
-        image: '/images/design2.png',
-        title: 'Logo Design',
+        image: '/images/banner-logo.png',
+        title: 'Logo & Branding',
            content: [
       { 
         type: 'heading', 
@@ -34,34 +34,34 @@ export const allProjects: Project[] = [
         src: '/images/giggle.png', // Gambar detail di dalam "blog"
         alt: 'logo giggle outen' 
       },
-      { 
-        type: 'paragraph', 
-        text: 'Giggle outem adalah brand untuk mainan kayu edukatif untuk anak.' 
-      },
+      // { 
+      //   type: 'paragraph', 
+      //   text: 'Giggle outem adalah brand untuk mainan kayu edukatif untuk anak.' 
+      // },
     ]
     },
 
     {
         slug: 'feed-instagram-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
-        image: '/images/design1.png',
-        title: 'Feed Instagram Design',
+        image: '/images/katalog-kaos.png',
+        title: 'Tshirt Catalogue Design',
         content: [
       
       { 
         type: 'heading', 
         level: 2, // Ini akan menjadi tag <h2>
-        text: 'Jiecos Instagram Feed' 
+        text: 'katalog kaosenzo.com' 
       },
       { 
         type: 'image', 
-        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
+        src: '/images/katalog-enzo.png', // Gambar detail di dalam "blog"
         alt: 'Proses sketsa logo kopi' 
       },
-      { 
-        type: 'paragraph', 
-        text: 'Jiecos adalah brand skincare' 
-      },
+      // { 
+      //   type: 'paragraph', 
+      //   text: 'Jiecos adalah brand skincare' 
+      // },
     ]
     },
     {
