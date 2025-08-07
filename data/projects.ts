@@ -108,29 +108,7 @@ export const allProjects: Project[] = [
       },
     ]
     },
-    {
-        slug: 'web-katalog-design', // <-- TAMBAHKAN INI
-        category: 'Graphic Design',
-        image: '/images/design4.png',
-        title: 'Katalogue Design',
-       content: [
-    
-      { 
-        type: 'heading', 
-        level: 2, // Ini akan menjadi tag <h2>
-        text: 'Katalog Kaos Enzo' 
-      },
-      { 
-        type: 'image', 
-        src: '/images/detail-blogaku1.jpg', // Gambar detail di dalam "blog"
-        alt: 'Proses sketsa logo kopi' 
-      },
-      { 
-        type: 'paragraph', 
-        text: 'kaosenzo adalah' 
-      },
-    ]
-    },
+
 
 
 
