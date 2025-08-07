@@ -31,7 +31,7 @@ export const allProjects: Project[] = [
       },
       { 
         type: 'image', 
-        src: '/images/giggle.png', // Gambar detail di dalam "blog"
+        src: '/images/giggle.png', 
         alt: 'logo giggle outen' 
       },
       // { 
@@ -42,7 +42,7 @@ export const allProjects: Project[] = [
     },
 
     {
-        slug: 'feed-instagram-design', // <-- TAMBAHKAN INI
+        slug: 'feed-instagram-design', 
         category: 'Graphic Design',
         image: '/images/katalog-kaos.png',
         title: 'Tshirt Catalogue Design',
