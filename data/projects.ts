@@ -31,9 +31,21 @@ export const allProjects: Project[] = [
       },
       { 
         type: 'image', 
-        src: '/images/giggle.png', 
+        src: '/images/logo-giggle.png', 
         alt: 'logo giggle outen' 
       },
+       { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Gruvio ID' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/logo-gruvio.png', 
+        alt: 'logo gruuvio' 
+      },
+
+
       // { 
       //   type: 'paragraph', 
       //   text: 'Giggle outem adalah brand untuk mainan kayu edukatif untuk anak.' 
