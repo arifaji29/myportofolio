@@ -202,12 +202,12 @@ export const allProjects: Project[] = [
     ]
     },
     {
-        slug: 'website-portofolio-pribadi',
+        slug: 'website-undangan-digital',
         category: 'Web Development',
         image: '/images/web-dev1.jpg',
-        title: 'Aplikasi Web - Daftar Belanja Emak',
-        githubUrl: 'https://github.com/arifaji29/My-List',
-        liveUrl: 'https://belanjaemak.vercel.app/',
+        title: 'website undangan digital dengan Next Js',
+        githubUrl: 'https://github.com/arifaji29/undangan-digital-nextjs',
+        liveUrl: 'https://undangan-digital-nextjs.vercel.app/?to=Arif%20Aji',
         content: [
       { 
         type: 'heading', 
