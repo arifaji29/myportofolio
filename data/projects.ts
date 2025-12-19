@@ -18,6 +18,8 @@ export interface Project {
 
 export const allProjects: Project[] = [
     // --- Proyek Desain Grafis ---
+
+    // --- Desain Logo ---
     {
         slug: 'logo-design', // <-- TAMBAHKAN INI
         category: 'Graphic Design',
@@ -44,15 +46,20 @@ export const allProjects: Project[] = [
         src: '/images/logo-gruvio.png', 
         alt: 'logo gruuvio' 
       },
-
-
-      // { 
-      //   type: 'paragraph', 
-      //   text: 'Giggle outem adalah brand untuk mainan kayu edukatif untuk anak.' 
-      // },
+       { 
+        type: 'heading', 
+        level: 2, // Ini akan menjadi tag <h2>
+        text: 'Alfiyah Beauty' 
+      },
+      { 
+        type: 'image', 
+        src: '/images/logo-alfiyah.png', 
+        alt: 'logo alfiyah' 
+      },
     ]
     },
-
+    
+    // --- Desain Katalog Kaos ---
     {
         slug: 'feed-instagram-design', 
         category: 'Graphic Design',
@@ -70,11 +77,12 @@ export const allProjects: Project[] = [
         src: '/images/katalog-enzo.png', // Gambar detail di dalam "blog"
         alt: 'Proses sketsa logo kopi' 
       },
-      // { 
-      //   type: 'paragraph', 
-      //   text: 'Jiecos adalah brand skincare' 
-      // },
+    
     ]
+
+
+    // --- Desain Stories ---
+
     },
     {
         slug: 'post-stories-design', // <-- TAMBAHKAN INI
@@ -125,9 +133,6 @@ export const allProjects: Project[] = [
 
 
 
-
-
-
     // --- Proyek UI/UX ---
     {
         slug: 'desain-ulang-aplikasi-pln-mobile',
@@ -139,11 +144,6 @@ export const allProjects: Project[] = [
         type: 'heading', 
         level: 2, // Ini akan menjadi tag <h2>
         text: 'PLN Mobile' 
-      },
-      { 
-        type: 'image', 
-        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
-        alt: 'Proses sketsa logo kopi' 
       },
       { 
         type: 'paragraph', 
@@ -164,17 +164,15 @@ export const allProjects: Project[] = [
         text: 'Recom Gadget' 
       },
       { 
-        type: 'image', 
-        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
-        alt: 'Proses sketsa logo kopi' 
-      },
-      { 
         type: 'paragraph', 
         text: 'Recom Gadget adalah' 
       },
     ]
        
     },
+
+
+
 
     // --- Proyek Web Development ---
     {
@@ -189,11 +187,6 @@ export const allProjects: Project[] = [
         type: 'heading', 
         level: 2, // Ini akan menjadi tag <h2>
         text: 'Proses Desain' 
-      },
-      { 
-        type: 'image', 
-        src: '/images/detail-kopi-1.jpg', // Gambar detail di dalam "blog"
-        alt: 'Proses sketsa logo kopi' 
       },
       { 
         type: 'paragraph', 
@@ -213,11 +206,6 @@ export const allProjects: Project[] = [
         type: 'heading', 
         level: 2, // Ini akan menjadi tag <h2>
         text: 'Proses Desain' 
-      },
-      { 
-        type: 'image', 
-        src: '/images/desing2.jpg', // Gambar detail di dalam "blog"
-        alt: 'Proses sketsa logo kopi' 
       },
       { 
         type: 'paragraph', 
