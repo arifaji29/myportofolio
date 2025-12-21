@@ -4,17 +4,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProjectCard.module.css';
 
-// Interface sekarang hanya butuh ini
 interface ProjectCardProps {
   image: string;
   title: string;
   slug: string;
+  category: string;
+  liveUrl?: string;
 }
 
-const ProjectCard = ({ image, title, slug }: ProjectCardProps) => {
+const ProjectCard = ({ image, title, slug, category, liveUrl }: ProjectCardProps) => {
+  // Cek apakah ini Web Development dan memiliki URL Live
+  const isWebDev = category === 'Web Development';
+  const hasLiveUrl = !!liveUrl;
+  const isExternalLink = isWebDev && hasLiveUrl;
+
+  // Jika Web Dev arahkan ke liveUrl, jika tidak arahkan ke slug detail
+  const finalHref = isExternalLink ? liveUrl : `/projects/${slug}`;
+
   return (
-    // Seluruh kartu sekarang adalah sebuah link ke halaman detail
-    <Link href={`/projects/${slug}`} className={styles.cardLink}>
+    <Link 
+      href={finalHref} 
+      className={styles.cardLink}
+      // Buka di tab baru hanya jika mengarah ke link eksternal (Web Dev)
+      target={isExternalLink ? "_blank" : "_self"}
+      rel={isExternalLink ? "noopener noreferrer" : ""}
+    >
       <div className={styles.card}>
         <div className={styles.imageContainer}>
           <Image 
@@ -23,9 +37,12 @@ const ProjectCard = ({ image, title, slug }: ProjectCardProps) => {
             width={500} 
             height={300} 
             className={styles.image} 
+            priority
           />
+          
         </div>
         <div className={styles.content}>
+          <span className={styles.categoryLabel}>{category}</span>
           <h3 className={styles.cardTitle}>{title}</h3>
         </div>
       </div>
