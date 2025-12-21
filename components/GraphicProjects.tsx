@@ -23,6 +23,8 @@ const GraphicProjects = () => {
               slug={project.slug}
               image={project.image}
               title={project.title}
+              category={project.category} 
+              liveUrl={project.liveUrl}
             />
           ))}
         </div>
