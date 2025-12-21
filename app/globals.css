@@ -28,6 +28,22 @@
   --hover-background-rgb: 55 65 81;   /* Hover gelap */
 }
 
+.container {
+  width: 100%;
+  padding-right: 20px; /* Tambahkan ruang ini */
+  padding-left: 20px;  /* Tambahkan ruang ini */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background-color: rgb(var(--bg-secondary-rgb)); /* Latar body tetap abu-abu terang */
