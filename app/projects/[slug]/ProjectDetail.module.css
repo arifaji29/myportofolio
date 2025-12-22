@@ -1,18 +1,22 @@
 /* app/projects/[slug]/ProjectDetail.module.css */
 
 .pageContainer {
-  background-color: rgb(var(--bg-secondary-rgb));
+  /* MENGUBAH BACKGROUND MENJADI TRANSPARAN */
+  background-color: transparent; 
   padding-top: 80px;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .header {
   text-align: center;
-  /* Kurangi padding bawah header agar jarak ke gambar tidak terlalu jauh, 
-     karena kita akan menambah jarak di mainImageContainer */
   padding: 4rem 1rem 1rem 1rem;
+  /* Tambahkan sedikit glassmorphism agar teks judul tetap kontras */
+  background-color: rgba(var(--bg-secondary-rgb), 0.2);
+  backdrop-filter: blur(4px);
 }
 
 .title {
@@ -25,28 +29,30 @@
   display: inline-block;
   margin-top: 1rem;
   padding: 0.25rem 1rem;
-  background-color: rgb(var(--border-color-rgb));
-  color: rgb(var(--muted-foreground-rgb));
+  /* Menggunakan warna transparan untuk tag kategori */
+  background-color: rgba(var(--border-color-rgb), 0.3);
+  color: rgb(var(--foreground-rgb));
   border-radius: 9999px;
   font-weight: 400;
+  backdrop-filter: blur(10px);
 }
 
 .mainImageContainer {
-  /* MEMBERIKAN JARAK ANTARA GAMBAR DAN KONTEN DI BAWAHNYA */
   margin-bottom: 4rem; 
-  
-  /* MEMBERIKAN PADDING SAMPING AGAR TIDAK MENEMPEL LAYAR */
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   border-radius: 12px;
   overflow: hidden;
-  background-color: #ffffff;
-  padding: 0.75rem; /* Padding di dalam frame putih */
+  /* Frame gambar dibuat semi-transparan (Glass effect) */
+  background-color: rgba(var(--bg-primary-rgb), 0.1); 
+  border: 1px solid rgba(var(--border-color-rgb), 0.2);
+  padding: 0.75rem; 
+  backdrop-filter: blur(10px);
 }
 
-/* Responsif: Padding lebih kecil di mobile agar gambar tetap besar */
+/* Responsif Mobile */
 @media screen and (max-width: 480px) {
   .mainImageContainer {
     margin-left: 1rem;
@@ -66,25 +72,27 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  /* Tambahkan padding agar teks tidak mepet layar */
   padding: 0 1.5rem; 
+  /* Memberikan background tipis agar teks panjang tetap nyaman dibaca */
+  background-color: rgba(var(--bg-secondary-rgb), 0.3);
+  border-radius: 16px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .contentWrapper {
     grid-template-columns: 3fr 1fr;
-    /* Jarak samping lebih lebar di desktop */
-    padding: 0 2rem; 
+    padding: 2rem 2rem; 
   }
 }
 
-/* Penyesuaian Heading Deskripsi */
 .description h2 {
-  font-size: 1.3rem; /* Diperbesar sedikit agar lebih jelas */
+  font-size: 1.3rem;
   font-weight: 700;
   margin-top: 0.5rem;
-  margin-bottom: 1.5rem; /* Jarak bawah judul diperlebar */
-  border-bottom: 2px solid rgb(var(--border-color-rgb));
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(var(--border-color-rgb), 0.3);
   color: rgb(var(--foreground-rgb));
   padding-bottom: 0.5rem;
 }
@@ -92,11 +100,10 @@
 .description p {
   line-height: 1.8;
   font-size: 1.1rem;
-  color: rgb(var(--muted-foreground-rgb));
-  margin-bottom: 1.5rem; /* Jarak antar paragraf */
+  color: rgb(var(--foreground-rgb)); /* Gunakan warna utama agar lebih tajam di dark mode */
+  margin-bottom: 1.5rem;
 }
 
-/* Bagian lainnya tetap sama */
 .sidebar h3 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -118,11 +125,15 @@
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  color: rgb(var(--muted-foreground-rgb));
-  background-color: rgb(var(--border-color-rgb));
-  transition: background-color 0.2s ease;
+  color: rgb(var(--foreground-rgb));
+  /* Tombol link dibuat transparan dengan glass effect */
+  background-color: rgba(var(--border-color-rgb), 0.2);
+  border: 1px solid rgba(var(--border-color-rgb), 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
 .link:hover {
-  background-color: rgb(var(--hover-background-rgb));
+  background-color: rgba(var(--hover-background-rgb), 0.4);
+  transform: translateY(-2px);
 }

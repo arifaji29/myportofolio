@@ -1,26 +1,33 @@
 /* components/ProjectCard.module.css */
+
 .card {
-  /* Menggunakan variabel untuk background dan border */
-  background: rgb(var(--bg-primary-rgb)); 
-  border: 1px solid rgb(var(--border-color-rgb));
-  border-radius: 10px;
+  /* Diubah menjadi semi-transparan agar partikel & grid terlihat */
+  background: rgba(var(--bg-primary-rgb), 0.4); 
+  border: 1px solid rgba(var(--border-color-rgb), 0.2);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Efek blur di belakang card */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(var(--border-color-rgb), 0.5);
+  background: rgba(var(--bg-primary-rgb), 0.6);
 }
 
 .imageContainer {
   cursor: pointer;
   overflow: hidden;
+  background: rgba(var(--bg-secondary-rgb), 0.2);
 }
 
 .imageContainer:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .image {
@@ -28,7 +35,7 @@
   height: auto;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content {
@@ -36,18 +43,23 @@
 }
 
 .cardTitle {
-  font-size: 1rem;
+  /* Judul menggunakan Inter (sans-serif utama) agar tegas */
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  /* Menggunakan variabel untuk warna teks */
+  margin-bottom: 0.5rem;
   color: rgb(var(--foreground-rgb));
 }
 
 .caption {
-  /* Menggunakan variabel untuk warna teks sekunder */
+  /* [UPDATE] Menggunakan Quicksand untuk kategori dan deskripsi */
+  font-family: var(--font-quicksand), sans-serif !important;
   color: rgb(var(--muted-foreground-rgb));
+  font-size: 0.95rem;
+  font-weight: 500; /* Quicksand lebih cantik jika sedikit tebal */
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   transition: all 0.3s ease-in-out;
 }
 
@@ -55,4 +67,9 @@
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+/* Penyesuaian khusus mode gelap agar teks lebih kontras di atas partikel */
+[class="dark"] .caption {
+  color: rgba(255, 255, 255, 0.7);
 }

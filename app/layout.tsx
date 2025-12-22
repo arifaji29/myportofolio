@@ -1,38 +1,58 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Quicksand } from "next/font/google"; // [1] Impor Quicksand
 import "./globals.css";
 import 'aos/dist/aos.css';
 
-// Impor komponen yang dibutuhkan
 import { AOSInitializer } from '@/components/AOSInitializer';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Providers from "@/components/ThemeProvider"; // <-- 1. Impor ThemeProvider
+import Providers from "@/components/ThemeProvider";
+import ParticlesBg from "@/components/ParticlesBg";
 
-const inter = Inter({ subsets: ["latin"] });
+// Konfigurasi Font Inter untuk Heading/Umum
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+// Konfigurasi Font Quicksand untuk Paragraf/Deskripsi
+const quicksand = Quicksand({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-quicksand",
+});
 
 export const metadata: Metadata = {
   title: "Arif's - Web Portfolio",
   description: "Portofolio web pribadi dibuat dengan Next.js",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // 2. Tambahkan suppressHydrationWarning dan ubah bahasa
     <html lang="id" suppressHydrationWarning> 
-      <body className={inter.className}>
-        {/* 3. Bungkus semua konten dengan Providers */}
+      {/* [2] Gabungkan kedua variabel font ke dalam className body */}
+      <body className={`${inter.variable} ${quicksand.variable} font-sans`} style={{ position: "relative" }}>
         <Providers>
+          <div style={{ 
+            position: "fixed", 
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 0, 
+            pointerEvents: "none" 
+          }}>
+            <ParticlesBg />
+          </div>
+
           <AOSInitializer /> 
           <Navbar />
-          <main>
+          
+          <main style={{ position: "relative", zIndex: 1 }}>
             {children}
           </main>
+          
           <Footer />
         </Providers>
       </body>

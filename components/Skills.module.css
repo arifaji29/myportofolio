@@ -38,7 +38,7 @@
 .skillCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  color: #0070f3; /* Warna aksen bisa tetap sama */
+  color: #af00aa; /* Warna aksen bisa tetap sama */
 }
 
 .skillCard p {

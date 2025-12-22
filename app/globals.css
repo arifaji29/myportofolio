@@ -5,52 +5,130 @@
 
 :root {
   /* Mode Terang (Default) */
-  --bg-primary-rgb: 255 255 255;      /* Putih #ffffff */
-  --bg-secondary-rgb: 249 250 251;   /* Abu-abu terang #f9fafb */
-  --foreground-rgb: 17 23 41;        /* Teks utama */
-  --muted-foreground-rgb: 107 114 128;/* Teks sekunder */
-  --border-color-rgb: 209 213 219;     /* Border */
-  --hover-background-rgb: 229 231 235;/* Hover terang */
+  --bg-primary-rgb: 255, 255, 255;
+  --bg-secondary-rgb: 249, 250, 251; 
+  --foreground-rgb: 17, 24, 39;
+  --muted-foreground-rgb: 107, 114, 128;
+  --border-color-rgb: 209, 213, 219;
+  --hover-background-rgb: 229, 231, 235;
 
-  /* Gradasi Kustom Anda */
   --gradient-start: #DC43B0;
   --gradient-end: #4A10B6;
   --brand-gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  
+  /* Tambahan untuk Grid Mode Terang (Sangat Tipis) */
+  --grid-color: rgba(0, 0, 0, 0.03);
 }
 
 [class="dark"] {
   /* Mode Gelap */
-  --bg-primary-rgb: 17 23 41;        /* Hitam kebiruan (utama) */
-  --bg-secondary-rgb: 31 41 55;       /* Abu-abu gelap (sekunder) */
-  --foreground-rgb: 237 237 237;     /* Teks utama */
-  --muted-foreground-rgb: 156 163 175;/* Teks sekunder */
-  --border-color-rgb: 55 65 81;       /* Border */
-  --hover-background-rgb: 55 65 81;   /* Hover gelap */
+  --bg-primary-rgb: 17, 24, 39;
+  --bg-secondary-rgb: 15, 23, 42;
+  --foreground-rgb: 237, 237, 237;
+  --muted-foreground-rgb: 156, 163, 175;
+  --border-color-rgb: 55, 65, 81;
+  --hover-background-rgb: 55, 65, 81;
+  
+  /* Warna Grid Berpendar (Ungu/Pink) */
+  --grid-color: rgba(220, 67, 176, 0.07);
+}
+
+/* --- Base Layout --- */
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--bg-secondary-rgb));
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- Efek Grid Berpendar (Modern UI) --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  /* Membuat pola kotak-kotak */
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px);
+  background-size: 45px 45px; /* Ukuran kotak grid */
+  
+  /* Efek memudar di pinggiran (Vignette) agar fokus ke tengah */
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 90%);
+  
+  pointer-events: none;
+}
+
+[class="dark"] body {
+  /* Background Radial Gradasi Luar Angkasa */
+  background: radial-gradient(circle at center, #1e293b 0%, #020617 100%) !important;
+}
+
+/* --- Section Styling (Transparan agar Grid & Partikel Tembus) --- */
+section {
+  position: relative;
+  z-index: 1;
+  /* Latar belakang dibuat sangat tipis agar efek grid di body::before terlihat */
+  background-color: rgba(var(--bg-secondary-rgb), 0.3) !important;
+  border-bottom: 1px solid rgba(var(--border-color-rgb), 0.1);
+  padding: 80px 0;
+  backdrop-filter: blur(1px); /* Blur sedikit saja agar grid tidak patah */
+  -webkit-backdrop-filter: blur(1px);
+}
+
+[class="dark"] section {
+  background-color: rgba(15, 23, 42, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* --- Form Styling --- */
+input, textarea {
+  background-color: rgba(var(--bg-primary-rgb), 0.8) !important;
+  border: 1px solid rgba(var(--border-color-rgb), 0.5) !important;
+  color: rgb(var(--foreground-rgb)) !important;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+[class="dark"] input, 
+[class="dark"] textarea {
+  background-color: rgba(31, 41, 55, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- Utils --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 .container {
   width: 100%;
-  padding-right: 20px; /* Tambahkan ruang ini */
-  padding-left: 20px;  /* Tambahkan ruang ini */
+  padding-right: 20px;
+  padding-left: 20px;
   margin-right: auto;
   margin-left: auto;
+  position: relative;
+  z-index: 10;
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--bg-secondary-rgb)); /* Latar body tetap abu-abu terang */
-  font-family: Arial, Helvetica, sans-serif;
+p,  
+input, 
+textarea,
+button,
+label {
+  font-family: var(--font-quicksand), sans-serif !important;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
