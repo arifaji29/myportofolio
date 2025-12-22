@@ -6,7 +6,7 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 2rem;
   color:rgb(var( --foreground-rgb));
@@ -15,7 +15,7 @@
 .description {
   max-width: 800px; /* Batasi lebar teks agar mudah dibaca */
   margin: 0 auto;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: rgb(var( --foreground-rgb));
 }

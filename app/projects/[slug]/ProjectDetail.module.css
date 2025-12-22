@@ -1,6 +1,6 @@
 /* app/projects/[slug]/ProjectDetail.module.css */
+
 .pageContainer {
-  /* Menggunakan variabel latar sekunder (abu-abu terang / abu-abu gelap) */
   background-color: rgb(var(--bg-secondary-rgb));
   padding-top: 80px;
   max-width: 1200px;
@@ -10,13 +10,14 @@
 
 .header {
   text-align: center;
-  padding: 4rem 1rem 2rem 1rem;
+  /* Kurangi padding bawah header agar jarak ke gambar tidak terlalu jauh, 
+     karena kita akan menambah jarak di mainImageContainer */
+  padding: 4rem 1rem 1rem 1rem;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.7rem;
   font-weight: 800;
-  /* Menggunakan variabel teks utama */
   color: rgb(var(--foreground-rgb));
 }
 
@@ -24,44 +25,65 @@
   display: inline-block;
   margin-top: 1rem;
   padding: 0.25rem 1rem;
-  /* Menggunakan variabel untuk latar dan teks */
   background-color: rgb(var(--border-color-rgb));
   color: rgb(var(--muted-foreground-rgb));
   border-radius: 9999px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .mainImageContainer {
-  margin-bottom: 3rem;
+  /* MEMBERIKAN JARAK ANTARA GAMBAR DAN KONTEN DI BAWAHNYA */
+  margin-bottom: 4rem; 
+  
+  /* MEMBERIKAN PADDING SAMPING AGAR TIDAK MENEMPEL LAYAR */
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   border-radius: 12px;
   overflow: hidden;
+  background-color: #ffffff;
+  padding: 0.75rem; /* Padding di dalam frame putih */
+}
+
+/* Responsif: Padding lebih kecil di mobile agar gambar tetap besar */
+@media screen and (max-width: 480px) {
+  .mainImageContainer {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .mainImage {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  padding: 0 1rem;
+  /* Tambahkan padding agar teks tidak mepet layar */
+  padding: 0 1.5rem; 
 }
 
 @media screen and (min-width: 768px) {
   .contentWrapper {
     grid-template-columns: 3fr 1fr;
+    /* Jarak samping lebih lebar di desktop */
+    padding: 0 2rem; 
   }
 }
 
+/* Penyesuaian Heading Deskripsi */
 .description h2 {
-  font-size: 1.75rem;
+  font-size: 1.3rem; /* Diperbesar sedikit agar lebih jelas */
   font-weight: 700;
-  margin-bottom: 1rem;
-  /* Menggunakan variabel border dan teks */
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem; /* Jarak bawah judul diperlebar */
   border-bottom: 2px solid rgb(var(--border-color-rgb));
   color: rgb(var(--foreground-rgb));
   padding-bottom: 0.5rem;
@@ -70,10 +92,11 @@
 .description p {
   line-height: 1.8;
   font-size: 1.1rem;
-  /* Menggunakan variabel teks sekunder */
   color: rgb(var(--muted-foreground-rgb));
+  margin-bottom: 1.5rem; /* Jarak antar paragraf */
 }
 
+/* Bagian lainnya tetap sama */
 .sidebar h3 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -95,13 +118,11 @@
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  /* Menggunakan variabel untuk latar dan teks */
   color: rgb(var(--muted-foreground-rgb));
   background-color: rgb(var(--border-color-rgb));
   transition: background-color 0.2s ease;
 }
 
 .link:hover {
-  /* Menggunakan variabel hover */
   background-color: rgb(var(--hover-background-rgb));
 }

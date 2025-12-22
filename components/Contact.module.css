@@ -7,14 +7,14 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: rgb(var(--foreground)); /* Menggunakan variabel */
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: rgb(var(--muted-foreground)); /* Menggunakan variabel */
   max-width: 600px;
   margin: 0 auto 2.5rem auto;
@@ -65,7 +65,7 @@
   color: #ffffff; /* Teks tombol gradien tetap putih */
   padding: 1rem 2rem;
   border-radius: 9999px;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   background-image: var(--brand-gradient);

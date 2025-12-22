@@ -159,7 +159,7 @@
 }
 
 .menuMobile a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(var(--foreground-rgb));
   text-decoration: none;
 }
@@ -177,12 +177,12 @@
 }
 
 .dropdownToggleMobile {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(var(--foreground-rgb));
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .arrowMobile {

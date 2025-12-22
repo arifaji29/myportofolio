@@ -13,8 +13,8 @@
 .socialLinks {
   display: flex;
   justify-content: center;
-  gap: 1.5rem; /* Jarak antar ikon */
-  margin-bottom: 1.5rem;
+  gap: 1.3rem; /* Jarak antar ikon */
+  margin-bottom: 1rem;
 }
 
 .socialLinks a {
@@ -29,5 +29,5 @@
 
 .copyright {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.6rem;
 }
